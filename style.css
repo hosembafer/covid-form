@@ -1,0 +1,56 @@
+.page_main_heading {
+    font-size: 20px;
+}
+
+.main_form .form-field {
+    margin-bottom: 20px;
+}
+
+.main_form .form-field label {
+    font-size: 14px;
+    font-weight: 900;
+    display: block;
+}
+
+.main_form input {
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.main_form input[type=text] {
+    width: 300px;
+}
+
+
+.main_form .download_button {
+    padding: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 5px;
+    outline: 0;
+    background-color: yellowgreen;
+}
+
+#sign {
+    
+    border: 1px solid yellowgreen;
+}
+
+.clear_signpad_button {
+    font-size: 14px;
+}
+
+@media print {
+    .main_form .form-field label {
+        display: initial;
+    }
+
+    .main_form .form-field input {
+        border: 0;
+    }
+
+    .clear_signpad_button, .download_button {
+        display: none;
+    }
+}

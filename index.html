@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>COVID-19 FORM - Open Source, Secure and Client-Side COVID-19 Document for permitted movement for residents of Armenia</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <h1 class="page_main_heading">ԱՐՏԱԿԱՐԳ ԴՐՈՒԹՅԱՆ ԺԱՄԱՆԱԿԱՀԱՏՎԱԾՈՒՄ ՏԵՂԱՇԱՐԺՄԱՆ ԹԵՐԹԻԿ</h1>
+        <hr />
+
+        <form class="main_form">
+            <div class="form-field">
+                <label for="date">Օր *</label>
+                <input name="date" id="date" type="date">
+            </div>
+            <div class="form-field">
+                <label for="full_name">Անուն, Ազգանուն, Հայրանուն *</label>
+                <input type="text" name="full_name" id="full_name">
+            </div>
+            <div class="form-field">
+                <label for="time_from">Ելքի Ժամը *</label>
+                <input name="time_from" id="time_from" type="time">
+            </div>
+            <div class="form-field">
+                <label for="address_from">Ելքի Հասցե *</label>
+                <input type="text" name="address_from" id="address_from">
+            </div>
+            <div class="form-field">
+                <label for="address_to">Ելքի Հասցե *</label>
+                <input type="text" name="address_to" id="address_to">
+            </div>
+            <div class="form-field">
+                <label for="reason">Այցելության Նպատակը *</label>
+                <input type="text" name="reason" id="reason">
+            </div>
+            <div class="form-field">
+                <label for="time_to">Վերադարձի Ակնկալվող Ժամը *</label>
+                <input name="time_to" id="time_to" type="time">
+            </div>
+            <div class="form-field">
+                <label for="sign">Ստորագրություն *</label>
+                <div style="clear: both;"></div>
+                <canvas id="sign" width="320" height="200"></canvas><br />
+                <button type="button" class="clear_signpad_button" onclick="clear_signpad();">Նորից ստորագրել</button>
+            </div>
+
+            <button type="submit" class="download_button">Ներբեռնել թերթիկը</button>
+        </form>
+        
+    </body>
+</html>
