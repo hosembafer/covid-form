@@ -50,7 +50,7 @@
         border: 0;
     }
 
-    .clear_signpad_button, .download_button {
+    .clear_signpad_button, .download_button, .github-corner {
         display: none;
     }
 }
