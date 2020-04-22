@@ -65,4 +65,5 @@ function buildAndDownload() {
         .from(outNode)
         .save(fileName);
     setTimeout(() => outNode.classList.remove('absoluteVisible'), 0);
+    alert('Ներբեռնված է');
 }

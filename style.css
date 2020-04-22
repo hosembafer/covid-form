@@ -1,21 +1,31 @@
 .page_main_heading {
     font-size: 20px;
+    text-align: center;
+}
+
+.main_form {
+    align-self: center;
+    justify-self: center;
+    max-width: 500px;
 }
 
 .main_form .form-field {
+    display: inline-block;
     margin-bottom: 20px;
 }
 
 .main_form .form-field label {
     font-size: 14px;
     font-weight: 900;
-    display: block;
+    color: #333333;
+    display: inline-block;
+    margin-bottom: 5px;
 }
 
 .main_form input {
     border-radius: 5px;
-    padding: 5px;
-    border: 1px solid #ccc;
+    padding: 10px;
+    border: 1px solid #dddddd;
 }
 
 .main_form input[type=text] {
@@ -23,12 +33,20 @@
 }
 
 .main_form .download_button {
-    padding: 5px;
+    padding: 10px 15px;
     font-weight: 600;
     font-size: 14px;
     border-radius: 5px;
     outline: 0;
+    border: 0;
     background-color: yellowgreen;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.main_form .download_button:hover {
+    background-color: #83b322;
 }
 
 #sign {
