@@ -22,7 +22,6 @@
     width: 300px;
 }
 
-
 .main_form .download_button {
     padding: 5px;
     font-weight: 600;
@@ -41,16 +40,53 @@
     font-size: 14px;
 }
 
+#output {
+    display: none;
+    padding: 30px;
+}
+
+#output h3 {
+    text-align: center;
+    font-size: 16px;
+}
+
+#output table {
+    width: 100%;
+}
+
+#output table td {
+    width: 50%;
+    font-size: 14px;
+}
+
+#output table td:first-child {
+    font-weight: bold;
+    text-align: center;
+}
+
+#out-sign-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 50px 0;
+}
+
+#out-date {
+    margin: 50px 0;
+    font-weight: bold;
+    font-size: 18px;
+}
+
 @media print {
-    .main_form .form-field label {
-        display: initial;
-    }
-
-    .main_form .form-field input {
-        border: 0;
-    }
-
-    .clear_signpad_button, .download_button, .github-corner {
+    body > * {
         display: none;
     }
+
+    #output {
+        display: block;
+    }
+}
+
+.absoluteVisible {
+    display: block !important;
 }
