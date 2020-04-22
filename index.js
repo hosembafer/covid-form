@@ -56,9 +56,13 @@ function buildAndDownload() {
 
     out('sign')(`<img src='${signaturePad.toDataURL()}' />`);
 
+    const us = (s) => s.split(' ').join('_');
+
+    const fileName = us(`${dateObj.getFullYear()}-${dateObj.getMonth() + 1}-${dateObj.getDate()} ${val('time_from').replace(':', '-')} for ${val('full_name')} COVID LETTER`);
+
     outNode.classList.add('absoluteVisible');
     html2pdf()
         .from(outNode)
-        .save();
+        .save(fileName);
     setTimeout(() => outNode.classList.remove('absoluteVisible'), 0);
 }
