@@ -1,7 +1,7 @@
 # COVID-19 MOVEMENT LETTER GENERATOR
 Open Source, Secure and Client-Side COVID-19 Document for permitted movement for residents of Armenia - without server-side sensitive data processing
 
-![Open Source, Secure and Client-Side COVID-19 Document for permitted movement for residents of Armenia](https://raw.githubusercontent.com/hosembafer/covid-form/master/cover.jpg)
+![Open Source, Secure and Client-Side COVID-19 Document for permitted movement for residents of Armenia - without server-side sensitive data processing](/cover.jpg)
 
 [Open form generator](https://hosembafer.github.io/covid-form/) on github hosted pages.
 
