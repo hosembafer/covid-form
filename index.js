@@ -13,6 +13,8 @@ const months = [
     'Դեկտեմբեր / December / Декабрь',
 ];
 
+const MAP_API_KEY = "AIzaSyDSBf13VbI5FfrisaYaTZP96Wm2snpDBG4";
+
 var signaturePad = null;
 
 function init_sign_editor() {
@@ -31,6 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         buildAndDownload();
     });
+
+    document.querySelector("#locate_start").addEventListener('click', (evt) => {
+        getLocation();
+    })
 });
 
 function clear_signpad() {
@@ -66,4 +72,27 @@ function buildAndDownload() {
         .save(fileName);
     setTimeout(() => outNode.classList.remove('absoluteVisible'), 0);
     alert('Ներբեռնված է');
+}
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(appendAddress);
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+
+function appendAddress(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?region=es&language=hy&latlng=${latitude},${longitude}&key=${MAP_API_KEY}`;
+    fetch(url)
+        .then(response => response.json())
+        .then(res => {
+            document.getElementById("address_from").value = resolveAddress(res)
+        });
+}
+
+function resolveAddress(response) {
+    return response.results.find(res => res.types[0] === 'street_address')?.formatted_address;
 }
