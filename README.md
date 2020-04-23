@@ -1,6 +1,8 @@
 # COVID-19 MOVEMENT LETTER GENERATOR
 Open Source, Secure and Client-Side COVID-19 Document for permitted movement for residents of Armenia
 
+[Open form generator](https://hosembafer.github.io/covid-form/) on github hosted pages.
+
 ## Motivation
 During coronavirus pandemic, residents of Armenia should have special letters describing when and where they go. The problem is that all available generators that helping to generate special letters sending the sensitive data to server to be able generate PDF file, they are all rapidly created services and can be not so much secure to process such sensitive data related to movement of residents.
 
