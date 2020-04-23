@@ -83,10 +83,11 @@ function getLocation() {
 }
 
 function makeGeolocatorUrl({ latitude, longitude }) {
-    return {
+    const opts = {
         here: () => `https://revgeocode.search.hereapi.com/v1/revgeocode?at=${latitude},${longitude}&lang=hy-HY&apiKey=iyzIIN0ab4nRWGNWfxvPHSsMcnb1eVlTmagpCq5UrE4`,
         google: () => `https://maps.googleapis.com/maps/api/geocode/json?region=es&language=hy&latlng=${latitude},${longitude}&key=AIzaSyDSBf13VbI5FfrisaYaTZP96Wm2snpDBG4`,
-    }[MAP_PROVIDER]();
+    };
+    return opts[MAP_PROVIDER]();
 }
 
 function appendAddress(position) {
@@ -99,8 +100,9 @@ function appendAddress(position) {
 }
 
 function resolveAddress(response) {
-    return {
+    const opts = {
         here: () => response.items?.[0].title,
         google: () => response.results.find(res => res.types[0] === 'street_address')?.formatted_address,
-    }[MAP_PROVIDER]();
+    };
+    return opts[MAP_PROVIDER]();
 }
