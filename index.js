@@ -101,8 +101,8 @@ function appendAddress(position) {
 
 function resolveAddress(response) {
     const opts = {
-        here: () => response.items?.[0].title,
-        google: () => response.results.find(res => res.types[0] === 'street_address')?.formatted_address,
+        here: () => response.items[0].title,
+        google: () => response.results.find(res => res.types[0] === 'street_address').formatted_address,
     };
     return opts[MAP_PROVIDER]();
 }
