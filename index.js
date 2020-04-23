@@ -13,7 +13,7 @@ const months = [
     'Դեկտեմբեր / December / Декабрь',
 ];
 
-const MAP_API_KEY = "AIzaSyDSBf13VbI5FfrisaYaTZP96Wm2snpDBG4";
+const MAP_PROVIDER = 'here'; // [google, here]
 
 var signaturePad = null;
 
@@ -82,10 +82,15 @@ function getLocation() {
     }
 }
 
+function makeGeolocatorUrl({ latitude, longitude }) {
+    return {
+        here: () => `https://revgeocode.search.hereapi.com/v1/revgeocode?at=${latitude},${longitude}&lang=hy-HY&apiKey=iyzIIN0ab4nRWGNWfxvPHSsMcnb1eVlTmagpCq5UrE4`,
+        google: () => `https://maps.googleapis.com/maps/api/geocode/json?region=es&language=hy&latlng=${latitude},${longitude}&key=AIzaSyDSBf13VbI5FfrisaYaTZP96Wm2snpDBG4`,
+    }[MAP_PROVIDER]();
+}
+
 function appendAddress(position) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?region=es&language=hy&latlng=${latitude},${longitude}&key=${MAP_API_KEY}`;
+    const url = makeGeolocatorUrl(position.coords);
     fetch(url)
         .then(response => response.json())
         .then(res => {
@@ -94,5 +99,8 @@ function appendAddress(position) {
 }
 
 function resolveAddress(response) {
-    return response.results.find(res => res.types[0] === 'street_address')?.formatted_address;
+    return {
+        here: () => response.items?.[0].title,
+        google: () => response.results.find(res => res.types[0] === 'street_address')?.formatted_address,
+    }[MAP_PROVIDER]();
 }
