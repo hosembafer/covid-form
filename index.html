@@ -20,11 +20,11 @@
             </div>
             <div class="form-field">
                 <label for="date">Օր *</label><br />
-                <input name="date" id="date" type="date" required style="width: 206px;">
+                <input name="date" id="date" type="date" required style="width: 216px;">
             </div>
             <div class="form-field">
                 <label for="time_from">Ելքի Ժամը *</label><br />
-                <input name="time_from" id="time_from" type="time" required>
+                <input name="time_from" id="time_from" type="time" required style="width: 78px;">
             </div>
             <div class="form-field">
                 <label for="address_from">Ելքի Հասցե *</label><br />
@@ -38,17 +38,19 @@
                 <label for="reason">Այցելության Նպատակը *</label><br />
                 <input type="text" name="reason" id="reason" required>
             </div>
+            <div class="clearfix"></div>
             <div class="form-field">
                 <label for="time_to">Վերադարձի Ակնկալվող Ժամը *</label><br />
                 <input name="time_to" id="time_to" type="time" required>
             </div>
+            <div class="clearfix"></div>
             <div class="form-field">
                 <label for="sign">Ստորագրություն *</label><br />
                 <div style="clear: both;"></div>
-                <canvas id="sign" width="320" height="200"></canvas><br />
+                <canvas id="sign" width="300" height="200"></canvas><br />
                 <button type="button" class="clear_signpad_button" onclick="clear_signpad();">Նորից ստորագրել</button>
             </div>
-
+            <div class="clearfix"></div>
             <button type="submit" class="download_button">Ներբեռնել թերթիկը</button>
         </form>
 
