@@ -15,28 +15,42 @@ const months = [
 
 const MAP_PROVIDER = 'here'; // [google, here]
 
-var signaturePad = null;
+let signaturePad = null;
+let locateAddressSpinnerNode = null;
+
+const val = (field) => document.getElementById(field).value;
+const setVal = (field) => (value) => document.getElementById(field).value = value;
+const out = (field) => (value) => document.getElementById(`out-${field}`).innerHTML = value;
+const mapOut = (field) => out(field)(val(field));
 
 function init_sign_editor() {
-    var canvas = document.querySelector("#sign");
+    const canvas = document.querySelector("#sign");
     signaturePad = new SignaturePad(canvas, {
         penColor: '#4285f4'
     });
 }
 
+function resizeSignaturePadCanvas() {
+    const canvas = document.querySelector("#sign");
+    canvas.width = document.querySelector("#sign-wrapper").offsetWidth;
+    canvas.height = canvas.width / 2;
+}
+
+window.addEventListener("resize", resizeSignaturePadCanvas);
+
 document.addEventListener('DOMContentLoaded', () => {
     init_sign_editor();
+    locateAddressSpinnerNode = document.querySelector('#locate_start span');
+    resizeSignaturePadCanvas();
 
-    document.querySelector('.main_form').addEventListener('submit', (event) => {
+    document.querySelector('form').addEventListener('submit', (event) => {
         event.preventDefault();
         event.stopPropagation();
 
         buildAndDownload();
     });
 
-    document.querySelector("#locate_start").addEventListener('click', (evt) => {
-        getLocation();
-    })
+    document.querySelector("#locate_start").addEventListener('click', () => getLocation());
 });
 
 function clear_signpad() {
@@ -45,9 +59,6 @@ function clear_signpad() {
 
 function buildAndDownload() {
     const outNode = document.getElementById('output');
-    const val = (field) => document.getElementById(field).value;
-    const out = (field) => (value) => document.getElementById(`out-${field}`).innerHTML = value;
-    const mapOut = (field) => out(field)(val(field));
 
     const dateObj = new Date(val('date'));
     const date = `${dateObj.getDate()} ${months[dateObj.getMonth()]} ${dateObj.getFullYear()}`
@@ -76,6 +87,7 @@ function buildAndDownload() {
 
 function getLocation() {
     if (navigator.geolocation) {
+        locateAddressSpinnerNode.classList.add('spinner-grow');
         navigator.geolocation.getCurrentPosition(appendAddress);
     } else {
         alert("Geolocation is not supported by this browser.");
@@ -94,9 +106,8 @@ function appendAddress(position) {
     const url = makeGeolocatorUrl(position.coords);
     fetch(url)
         .then(response => response.json())
-        .then(res => {
-            document.getElementById("address_from").value = resolveAddress(res)
-        });
+        .then((res) => setVal('address_from')(resolveAddress(res)))
+        .then(() => locateAddressSpinnerNode.classList.remove('spinner-grow'));
 }
 
 function resolveAddress(response) {

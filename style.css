@@ -15,64 +15,9 @@ body {
     text-align: center;
 }
 
-.main_form {
-    align-self: center;
-    justify-self: center;
-    width: 304px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.main_form .form-field {
-    display: inline-block;
-    margin-bottom: 20px;
-}
-
-.main_form .form-field label {
-    font-size: 11px;
-    font-weight: 900;
-    color: #333333;
-    display: inline-block;
-    margin-bottom: 5px;
-}
-
-.main_form input {
-    border-radius: 5px;
-    padding: 10px;
-    border: 1px solid #dddddd;
-}
-
-.main_form input[type=text] {
-    width: 280px;
-}
-
-.main_form .download_button {
-    width: 100%;
-    padding: 10px 15px;
-    font-weight: 600;
-    font-size: 14px;
-    border-radius: 5px;
-    outline: 0;
-    border: 0;
-    background-color: yellowgreen;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.main_form .download_button:hover {
-    background-color: #83b322;
-}
-
-#sign {
-    
+#sign-wrapper {
+    max-width: 500px;
     border: 1px solid yellowgreen;
-}
-
-.clear_signpad_button {
-    font-size: 14px;
 }
 
 #output {
@@ -100,6 +45,14 @@ body {
     text-align: center;
 }
 
+#out-sign {
+    width: 325px;
+}
+
+#out-sign img {
+    width: 100%;
+}
+
 #out-sign-wrapper {
     display: flex;
     align-items: center;
@@ -125,9 +78,4 @@ body {
 
 .absoluteVisible {
     display: block !important;
-}
-
-.for-details {
-    color: #333333;
-    text-align: center;
 }
