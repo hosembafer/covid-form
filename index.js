@@ -30,10 +30,15 @@ function init_sign_editor() {
     });
 }
 
+let prevSignWidth = 0;
 function resizeSignaturePadCanvas() {
-    const canvas = document.querySelector("#sign");
-    canvas.width = document.querySelector("#sign-wrapper").offsetWidth;
-    canvas.height = canvas.width / 2;
+    const newSignWidth = document.querySelector("#sign-wrapper").offsetWidth;
+    if (newSignWidth !== prevSignWidth) {
+        const canvas = document.querySelector("#sign");
+        canvas.width = newSignWidth;
+        canvas.height = newSignWidth / 2;
+        prevSignWidth = newSignWidth;
+    }
 }
 
 window.addEventListener("resize", resizeSignaturePadCanvas);
