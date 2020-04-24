@@ -43,7 +43,7 @@
                         <div class="form-group col">
                             <label for="address_from">Ելքի Հասցե</label>
                             <input type="text" name="address_from" id="address_from" required class="form-control">
-                            <button type="button" id="locate_start" class="btn btn-secondary btn-sm mt-1">
+                            <button type="button" id="locate_start" onclick="getLocation();" class="btn btn-secondary btn-sm mt-1">
                                 <span class="spinner-grow-sm"></span>
                                 Տեղորոշել հասցեն
                             </button>
@@ -133,7 +133,7 @@
             </table>
 
             <div id="out-sign-wrapper">
-                <div>Ստորագրություն</div>
+                <div style="margin-top: 20px;">Ստորագրություն</div>
                 <div id="out-sign"></div>
             </div>
         </div>

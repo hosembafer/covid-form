@@ -49,8 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         buildAndDownload();
     });
-
-    document.querySelector("#locate_start").addEventListener('click', () => getLocation());
 });
 
 function clear_signpad() {
@@ -61,7 +59,10 @@ function buildAndDownload() {
     const outNode = document.getElementById('output');
 
     const dateObj = new Date(val('date'));
-    const date = `${dateObj.getDate()} ${months[dateObj.getMonth()]} ${dateObj.getFullYear()}`
+    const date = `
+        <span style='text-decoration: underline;'>&nbsp;&nbsp;&nbsp;&nbsp;${dateObj.getDate()}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        ${months[dateObj.getMonth()]} ${dateObj.getFullYear()}
+    `;
     out('date')(date);
 
     mapOut('full_name');
