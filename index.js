@@ -56,8 +56,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function clear_signpad() {
+function clearSignPad() {
     signaturePad.clear();
+}
+
+function undoSignPad() {
+    const data = signaturePad.toData();
+    if (data) {
+        data.pop();
+        signaturePad.fromData(data);
+    }
 }
 
 function buildAndDownload() {
