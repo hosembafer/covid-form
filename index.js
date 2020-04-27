@@ -54,6 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         buildAndDownload();
     });
+
+    [...document.querySelectorAll('.reason_options span')].forEach((node) => node.addEventListener('click', (event) => {
+        setVal('reason')(event.target.innerHTML);
+    }));
 });
 
 function clearSignPad() {
